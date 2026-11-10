@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0b1020" />
+    <meta name="description" content="CrossMind — a bilingual Persian and English crossword puzzle game with randomly generated, non-repeating grids." />
+    <title>چهارراه | CrossMind Crossword</title>
+    <link rel="stylesheet" href="./src/styles.css" />
+  </head>
+  <body>
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+    <div class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="#top" aria-label="CrossMind home">
+          <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+          <span class="brand-copy"><strong id="brandName">چهارراه</strong><small id="brandEyebrow">بازی واژه و دانایی</small></span>
+        </a>
+        <div class="top-actions">
+          <div class="language-switch" aria-label="Game language">
+            <button class="lang-btn active" data-lang="fa" type="button">فا</button>
+            <button class="lang-btn" data-lang="en" type="button">EN</button>
+          </div>
+          <button id="soundToggle" class="icon-button" type="button" aria-label="Toggle sound" title="Sound">♫</button>
+          <a class="github-link" href="https://github.com/HamidYaraliOfficial" target="_blank" rel="noreferrer" aria-label="GitHub profile">↗</a>
+        </div>
+      </header>
+
+      <main id="top">
+        <section class="hero">
+          <div class="hero-copy">
+            <div class="eyebrow"><span class="eyebrow-dot"></span><span id="heroEyebrow">بازی واژه و دانایی</span></div>
+            <h1 id="heroTitle">هر خانه یک حرف؛<br /><em>هر تقاطع یک کشف.</em></h1>
+            <p id="heroSubtitle">راهنماها را بخوان، حروف را کنار هم بگذار و جدول را کامل کن.</p>
+            <div class="hero-meta">
+              <span class="meta-chip"><span class="chip-icon">✦</span><b id="heroRandom">تولید تصادفی</b></span>
+              <span class="meta-chip"><span class="chip-icon">◈</span><b id="heroUnique">۱۰۰ جدول غیرتکراری</b></span>
+              <span class="meta-chip"><span class="chip-icon">⌘</span><b id="heroBilingual">فارسی و انگلیسی</b></span>
+            </div>
+          </div>
+          <div class="hero-art" aria-hidden="true">
+            <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div>
+            <div class="float-card card-a"><span>م</span><small>۱۴</small></div>
+            <div class="float-card card-b"><span>A</span><small>08</small></div>
+            <div class="float-card card-c"><span>?</span><small>✦</small></div>
+            <div class="hero-emblem"><div class="emblem-grid"><i>C</i><i>R</i><i>O</i><i>S</i><i>S</i><i>W</i><i>O</i><i>R</i><i>D</i></div><span class="emblem-spark">✦</span></div>
+          </div>
+        </section>
+
+        <section class="game-toolbar" aria-label="Game controls">
+          <div class="toolbar-left">
+            <div class="select-wrap">
+              <label for="difficultySelect" id="difficultyLabel">سطح</label>
+              <select id="difficultySelect">
+                <option value="all">همه اندازه‌ها</option>
+                <option value="small">کوچک</option>
+                <option value="medium">متوسط</option>
+                <option value="large">بزرگ</option>
+              </select>
+            </div>
+            <div class="select-wrap topic-select-wrap">
+              <label for="topicSelect" id="topicLabel">موضوع</label>
+              <select id="topicSelect">
+                <option value="all">همه موضوع‌ها</option>
+                <option value="technology">فناوری</option>
+                <option value="science">دانش</option>
+                <option value="nature">طبیعت</option>
+                <option value="animals">جانوران</option>
+                <option value="culture">فرهنگ</option>
+                <option value="objects">اشیا</option>
+              </select>
+            </div>
+          </div>
+          <div class="toolbar-right">
+            <span class="batch-counter" id="batchCounter">جدول ۱ از ۱۰۰</span>
+            <button id="newPuzzleBtn" class="primary-button" type="button"><span>✦</span><span id="newPuzzleText">جدول تازه</span></button>
+          </div>
+        </section>
+
+        <section class="stats-row" aria-label="Game statistics">
+          <article class="stat-card">
+            <div class="stat-icon purple">◷</div><div><small id="timeLabel">زمان</small><strong id="timerValue">00:00</strong></div>
+          </article>
+          <article class="stat-card">
+            <div class="stat-icon blue">▦</div><div><small id="progressLabel">پیشرفت</small><strong id="progressValue">۰٪</strong></div>
+          </article>
+          <article class="stat-card">
+            <div class="stat-icon amber">✧</div><div><small id="scoreLabel">امتیاز</small><strong id="scoreValue">۱۰۰</strong></div>
+          </article>
+          <article class="stat-card best-card">
+            <div class="stat-icon green">♛</div><div><small id="bestLabel">بهترین زمان</small><strong id="bestValue">—</strong></div>
+          </article>
+        </section>
+
+        <section class="workspace">
+          <div class="board-panel panel">
+            <div class="panel-heading">
+              <div><span class="section-kicker" id="boardKicker">THE PUZZLE</span><h2 id="boardTitle">جدول امروز</h2></div>
+              <div class="board-tools"><span class="grid-size" id="gridSize">— × —</span><button id="clearBtn" class="subtle-button" type="button"><span>⌫</span><span id="clearText">پاک‌کردن</span></button></div>
+            </div>
+            <div class="board-stage">
+              <div id="crosswordGrid" class="crossword-grid" role="group" aria-label="Crossword grid"></div>
+            </div>
+            <div class="board-footer">
+              <div class="legend"><span><i class="legend-active"></i><b id="legendActive">خانه فعال</b></span><span><i class="legend-filled"></i><b id="legendFilled">حرف واردشده</b></span><span><i class="legend-empty"></i><b id="legendEmpty">خانه خالی</b></span></div>
+              <span class="keyboard-tip" id="keyboardTip">برای جابه‌جایی از کلیدهای جهت‌دار استفاده کن.</span>
+            </div>
+          </div>
+
+          <aside class="clue-panel panel">
+            <div class="clue-header"><div><span class="section-kicker" id="clueKicker">WORD CLUES</span><h2 id="clueTitle">راهنماها</h2></div><span class="clue-count" id="clueCount">۰ واژه</span></div>
+            <div class="clue-tabs">
+              <button class="clue-tab active" data-dir="across" type="button"><span class="tab-arrow">↔</span><span id="acrossTab">افقی</span><b id="acrossCount">۰</b></button>
+              <button class="clue-tab" data-dir="down" type="button"><span class="tab-arrow">↕</span><span id="downTab">عمودی</span><b id="downCount">۰</b></button>
+            </div>
+            <div id="clueList" class="clue-list"></div>
+            <div id="activeClueBox" class="active-clue-box"><span class="active-clue-label" id="activeClueLabel">راهنمای انتخاب‌شده</span><p id="activeClueText">یک راهنما را انتخاب کنید</p></div>
+          </aside>
+        </section>
+
+        <section class="action-bar panel">
+          <div class="action-note"><span class="note-icon">✦</span><div><strong id="actionTitle">قدم‌به‌قدم جدول را کامل کن</strong><small id="actionSubtitle">برای هر خانه فقط یک حرف وارد کن.</small></div></div>
+          <div class="action-buttons">
+            <button id="hintBtn" class="outline-button" type="button"><span>✧</span><span id="hintText">راهنمایی</span><kbd>H</kbd></button>
+            <button id="checkBtn" class="outline-button" type="button"><span>✓</span><span id="checkText">بررسی پاسخ</span><kbd>↵</kbd></button>
+            <button id="revealBtn" class="danger-button" type="button"><span>◉</span><span id="revealText">نمایش پاسخ</span></button>
+          </div>
+        </section>
+
+        <div id="toast" class="toast" role="status" aria-live="polite"></div>
+        <section id="completionBanner" class="completion-banner" hidden>
+          <div class="completion-icon">✦</div><div><strong id="completionTitle">آفرین! جدول کامل شد.</strong><p id="completionMessage"></p></div><button id="nextFromBanner" class="primary-button" type="button"><span id="nextFromBannerText">جدول بعدی</span><span>←</span></button>
+        </section>
+      </main>
+      <footer class="site-footer"><span id="footerText">ساخته‌شده برای دوست‌داران واژه، منطق و کشف</span><span>© 2026 <strong>Hamid Yarali</strong> · CrossMind</span></footer>
+    </div>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>

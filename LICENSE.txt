@@ -1,0 +1,16 @@
+Copyright (c) 2026 Hamid Yarali
+
+All rights reserved.
+
+The source code and associated project assets are the exclusive intellectual
+property of Hamid Yarali. No permission is granted to copy, reproduce,
+redistribute, publish, sublicense, modify, or create derivative works from this
+software, in whole or in part, without prior written permission from the
+copyright holder.
+
+The software is provided "AS IS", without warranty of any kind, express or
+implied. In no event shall the copyright holder be liable for any claim,
+damages, or other liability arising from the use of the software.
+
+For licensing inquiries, contact the copyright holder through the contact
+information published on the author's official GitHub profile.

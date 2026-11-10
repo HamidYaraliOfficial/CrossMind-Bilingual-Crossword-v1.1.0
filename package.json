@@ -1,0 +1,17 @@
+{
+  "name": "crossmind-bilingual-crossword",
+  "version": "1.1.0",
+  "private": false,
+  "type": "module",
+  "description": "A bilingual Persian-English crossword puzzle game with randomized, non-repeating boards.",
+  "scripts": {
+    "start": "node server.mjs",
+    "dev": "node server.mjs",
+    "test": "node scripts/verify-generator.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "author": "Hamid Yarali",
+  "license": "SEE LICENSE IN LICENSE.txt"
+}
